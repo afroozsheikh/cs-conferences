@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CS Conference Alerts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ─── RESET & ROOT ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:      #0f1b2d;
+    --navy-mid:  #1a2e4a;
+    --blue:      #2563eb;
+    --blue-light:#3b82f6;
+    --sky:       #e0eaff;
+    --white:     #ffffff;
+    --grey-100:  #f4f6fa;
+    --grey-200:  #e2e7ee;
+    --grey-400:  #8895a6;
+    --grey-600:  #5a6577;
+    --green:     #16a34a;
+    --amber:     #d97706;
+    --red:       #dc2626;
+    --radius:    10px;
+    --shadow-sm: 0 1px 3px rgba(15,27,45,.12);
+    --shadow-md: 0 4px 16px rgba(15,27,45,.10);
+    --shadow-lg: 0 8px 30px rgba(15,27,45,.14);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--navy);
+    background: var(--grey-100);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--grey-200);
+    box-shadow: var(--shadow-sm);
+  }
+  .nav-inner {
+    max-width: 1140px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 64px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.35rem; font-weight: 700;
+    color: var(--navy);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo .icon {
+    width: 34px; height: 34px;
+    background: var(--blue); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo .icon svg { width: 18px; height: 18px; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    font-size: .88rem; font-weight: 500;
+    color: var(--grey-600);
+    transition: color .2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1e3a5f 100%);
+    padding: 72px 24px 64px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 50%, rgba(37,99,235,.18) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 80% 60%, rgba(37,99,235,.12) 0%, transparent 70%);
+  }
+  .hero-inner {
+    position: relative; max-width: 780px; margin: 0 auto; text-align: center;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(37,99,235,.15); color: var(--blue-light);
+    border: 1px solid rgba(59,130,246,.3);
+    font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    font-weight: 700; color: var(--white);
+    line-height: 1.2; margin-bottom: 14px;
+  }
+  .hero h1 span { color: #7dd3fc; }
+  .hero p {
+    color: rgba(255,255,255,.65);
+    font-size: 1.05rem; max-width: 580px; margin: 0 auto;
+  }
+
+  /* ─── SEARCH BAR ─── */
+  .search-wrap {
+    max-width: 720px; margin: -26px auto 0; position: relative; z-index: 2;
+    padding: 0 24px;
+  }
+  .search-box {
+    display: flex; align-items: center;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color .25s;
+  }
+  .search-box:focus-within { border-color: var(--blue); }
+  .search-icon {
+    padding: 0 18px; color: var(--grey-400);
+  }
+  .search-icon svg { width: 20px; height: 20px; display: block; }
+  .search-box input {
+    flex: 1; border: none; outline: none;
+    font-family: var(--font-body);
+    font-size: .95rem; padding: 16px 0;
+    color: var(--navy);
+  }
+  .search-box input::placeholder { color: var(--grey-400); }
+  .search-box button {
+    background: var(--blue); color: var(--white);
+    border: none; cursor: pointer;
+    font-family: var(--font-body);
+    font-size: .88rem; font-weight: 600;
+    padding: 16px 28px;
+    transition: background .2s;
+  }
+  .search-box button:hover { background: #1d4ed8; }
+
+  /* ─── LAYOUT WRAPPER ─── */
+  .page-body {
+    max-width: 1140px; margin: 40px auto; padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 36px;
+  }
+
+  /* ─── MONTH TABS ─── */
+  .month-tabs {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 24px;
+  }
+  .month-tabs button {
+    background: var(--white); border: 1px solid var(--grey-200);
+    color: var(--grey-600);
+    font-family: var(--font-body); font-size: .82rem; font-weight: 600;
+    padding: 6px 14px; border-radius: 20px;
+    cursor: pointer; transition: all .2s;
+  }
+  .month-tabs button:hover { border-color: var(--blue); color: var(--blue); }
+  .month-tabs button.active {
+    background: var(--blue); color: var(--white); border-color: var(--blue);
+  }
+
+  /* ─── SECTION LABEL ─── */
+  .section-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: 1.45rem; font-weight: 700;
+  }
+  .section-header span {
+    font-size: .82rem; color: var(--grey-400); font-weight: 500;
+  }
+
+  /* ─── CONFERENCE CARD ─── */
+  .conf-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--grey-200);
+    overflow: hidden;
+    transition: box-shadow .25s, transform .2s;
+    margin-bottom: 16px;
+  }
+  .conf-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  .conf-card-top {
+    display: grid;
+    grid-template-columns: 72px 1fr auto;
+    gap: 16px;
+    align-items: start;
+    padding: 20px 22px 16px;
+  }
+
+  /* date box */
+  .conf-date-box {
+    background: var(--navy);
+    border-radius: 10px;
+    text-align: center;
+    padding: 8px 6px;
+    min-width: 64px;
+    color: var(--white);
+  }
+  .conf-date-box .month {
+    font-size: .7rem; text-transform: uppercase; letter-spacing: .08em;
+    font-weight: 600; color: #7dd3fc;
+  }
+  .conf-date-box .day {
+    font-family: var(--font-display);
+    font-size: 1.6rem; font-weight: 700; line-height: 1.1;
+  }
+  .conf-date-box .year {
+    font-size: .68rem; color: rgba(255,255,255,.55); margin-top: 2px;
+  }
+
+  /* info */
+  .conf-info h3 {
+    font-size: 1.05rem; font-weight: 600;
+    margin-bottom: 5px; color: var(--navy);
+  }
+  .conf-info h3 a:hover { color: var(--blue); }
+  .conf-meta {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    font-size: .82rem; color: var(--grey-600);
+  }
+  .conf-meta span { display: flex; align-items: center; gap: 5px; }
+  .conf-meta svg { width: 14px; height: 14px; color: var(--grey-400); }
+
+  /* status badge */
+  .status-badge {
+    font-size: .73rem; font-weight: 700;
+    padding: 4px 10px; border-radius: 14px;
+    white-space: nowrap; text-transform: uppercase; letter-spacing: .04em;
+  }
+  .status-open   { background: #dcfce7; color: var(--green); }
+  .status-soon   { background: #fef3c7; color: var(--amber); }
+  .status-closed { background: #fee2e2; color: var(--red); }
+
+  /* card footer / deadlines */
+  .conf-card-footer {
+    border-top: 1px solid var(--grey-200);
+    padding: 12px 22px;
+    display: flex; flex-wrap: wrap; gap: 18px;
+    background: var(--grey-100);
+  }
+  .deadline-item {
+    font-size: .79rem;
+  }
+  .deadline-item .dl-label {
+    color: var(--grey-400); font-weight: 500; text-transform: uppercase;
+    letter-spacing: .04em; font-size: .68rem;
+  }
+  .deadline-item .dl-value {
+    font-weight: 600; color: var(--navy-mid);
+  }
+  .conf-card-footer .more-link {
+    margin-left: auto;
+    font-size: .8rem; font-weight: 600;
+    color: var(--blue);
+    display: flex; align-items: center; gap: 4px;
+  }
+  .conf-card-footer .more-link:hover { text-decoration: underline; }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar { display: flex; flex-direction: column; gap: 24px; }
+
+  .sidebar-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--grey-200);
+    overflow: hidden;
+  }
+  .sidebar-card-header {
+    background: var(--navy);
+    padding: 14px 18px;
+    color: var(--white);
+    font-size: .82rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .06em;
+  }
+  .sidebar-card-body { padding: 16px 18px; }
+
+  /* topic list */
+  .topic-list { list-style: none; }
+  .topic-list li {
+    padding: 7px 0;
+    border-bottom: 1px solid var(--grey-200);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .topic-list li:last-child { border-bottom: none; }
+  .topic-list a {
+    font-size: .84rem; color: var(--grey-600); font-weight: 500;
+    transition: color .2s;
+  }
+  .topic-list a:hover { color: var(--blue); }
+  .topic-list .count {
+    background: var(--grey-100); color: var(--grey-600);
+    font-size: .72rem; font-weight: 600;
+    padding: 2px 8px; border-radius: 10px;
+  }
+
+  /* upcoming quick */
+  .upcoming-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 10px 0; border-bottom: 1px solid var(--grey-200);
+  }
+  .upcoming-item:last-child { border-bottom: none; }
+  .upcoming-mini-date {
+    background: var(--sky); border-radius: 8px;
+    text-align: center; padding: 5px 8px; min-width: 42px;
+  }
+  .upcoming-mini-date .m { font-size: .62rem; text-transform: uppercase; font-weight: 700; color: var(--blue); }
+  .upcoming-mini-date .d { font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.1; }
+  .upcoming-item h4 { font-size: .82rem; font-weight: 600; margin-bottom: 2px; }
+  .upcoming-item p  { font-size: .75rem; color: var(--grey-400); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,.6);
+    padding: 48px 24px 28px; margin-top: 60px;
+  }
+  .footer-inner {
+    max-width: 1140px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+  }
+  footer h4 { color: var(--white); font-size: .85rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .06em; }
+  footer p, footer a { font-size: .82rem; line-height: 1.8; }
+  footer a { color: rgba(255,255,255,.55); transition: color .2s; }
+  footer a:hover { color: var(--white); }
+  .footer-bottom {
+    max-width: 1140px; margin: 32px auto 0;
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 20px;
+    font-size: .76rem; color: rgba(255,255,255,.35);
+    display: flex; justify-content: space-between;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 860px) {
+    .page-body { grid-template-columns: 1fr; }
+    .sidebar { order: -1; }
+  }
+  @media (max-width: 560px) {
+    .nav-links { display: none; }
+    .conf-card-top { grid-template-columns: 56px 1fr; }
+    .status-badge { grid-column: 2; }
+    .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      CS Conference Alerts
+    </div>
+    <div class="nav-links">
+      <a href="#" class="active">Conferences</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">✦ Updated Feb 2026</div>
+    <h1>Upcoming <span>Computer Science</span> Conferences</h1>
+    <p>Discover top CS conferences worldwide — browse by topic, deadline, or month. Stay ahead in AI, ML, Systems &amp; more.</p>
+  </div>
+</section>
+
+<!-- ─── SEARCH ─── -->
+<div class="search-wrap">
+  <div class="search-box">
+    <div class="search-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+    </div>
+    <input type="text" id="searchInput" placeholder="Search by name, topic, or location…" oninput="filterConferences()">
+    <button>Search</button>
+  </div>
+</div>
+
+<!-- ─── MAIN ─── -->
+<div class="page-body">
+
+  <!-- ── LEFT: Listings ── -->
+  <main>
+    <!-- Month filter -->
+    <div class="month-tabs" id="monthTabs">
+      <button class="active" onclick="filterMonth('all', this)">All</button>
+      <button onclick="filterMonth('Feb', this)">Feb 2026</button>
+      <button onclick="filterMonth('Mar', this)">Mar 2026</button>
+      <button onclick="filterMonth('Apr', this)">Apr 2026</button>
+      <button onclick="filterMonth('May', this)">May 2026</button>
+      <button onclick="filterMonth('Jun', this)">Jun 2026</button>
+      <button onclick="filterMonth('Jul', this)">Jul 2026</button>
+      <button onclick="filterMonth('Aug', this)">Aug 2026</button>
+      <button onclick="filterMonth('Sep', this)">Sep 2026</button>
+      <button onclick="filterMonth('Oct', this)">Oct 2026</button>
+      <button onclick="filterMonth('Nov', this)">Nov 2026</button>
+      <button onclick="filterMonth('Dec', this)">Dec 2026</button>
+    </div>
+
+    <div class="section-header">
+      <h2>Conference Listings</h2>
+      <span id="resultCount">Showing 8 conferences</span>
+    </div>
+
+    <div id="conferenceList">
+      <!-- Cards injected by JS -->
+    </div>
+  </main>
+
+  <!-- ── RIGHT: Sidebar ── -->
+  <aside class="sidebar">
+
+    <!-- Topics -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">Browse by Topic</div>
+      <div class="sidebar-card-body">
+        <ul class="topic-list" id="topicList">
+          <!-- injected -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- Upcoming quick-glance -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">Coming Up Soon</div>
+      <div class="sidebar-card-body" id="upcomingSidebar">
+        <!-- injected -->
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>CS Conference Alerts</h4>
+      <p>A curated hub for your lab to track upcoming Computer Science conferences, deadlines &amp; calls for papers.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="#" style="display:block">All Conferences</a>
+      <a href="#" style="display:block">About Us</a>
+      <a href="#" style="display:block">Contact</a>
+    </div>
+    <div>
+      <h4>Topics</h4>
+      <a href="#" style="display:block">Artificial Intelligence</a>
+      <a href="#" style="display:block">Machine Learning</a>
+      <a href="#" style="display:block">Systems &amp; Networks</a>
+      <a href="#" style="display:block">Software Engineering</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 CS Conference Alerts. All rights reserved.</span>
+    <span>Built for your lab · Hosted on GitHub Pages</span>
+  </div>
+</footer>
+
+<!-- ─── DATA + LOGIC ─── -->
+<script>
+// ── Conference data ──  (edit this array to add/remove conferences!)
+const conferences = [
+  {
+    title: "ICML 2026 – International Conference on Machine Learning",
+    month: "Jul", day: "13", year: "2026",
+    location: "Montreal, Canada",
+    topic: "Machine Learning",
+    status: "open",          // open | soon | closed
+    paperDeadline: "Feb 06, 2026",
+    notificationDate: "Apr 01, 2026",
+    cameraReady: "May 15, 2026",
+    url: "#"
+  },
+  {
+    title: "NeurIPS 2026 – Conference on Neural Information Processing Systems",
+    month: "Dec", day: "07", year: "2026",
+    location: "San Diego, USA",
+    topic: "Deep Learning",
+    status: "open",
+    paperDeadline: "May 15, 2026",
+    notificationDate: "Sep 10, 2026",
+    cameraReady: "Oct 20, 2026",
+    url: "#"
+  },
+  {
+    title: "CVPR 2026 – IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    month: "Jun", day: "21", year: "2026",
+    location: "Seattle, USA",
+    topic: "Computer Vision",
+    status: "soon",
+    paperDeadline: "Mar 10, 2026",
+    notificationDate: "Apr 25, 2026",
+    cameraReady: "May 30, 2026",
+    url: "#"
+  },
+  {
+    title: "SIGCOMM 2026 – ACM Conference on Applications, Technologies, Protocols &amp; Data Structures for Communication Networks",
+    month: "Sep", day: "14", year: "2026",
+    location: "London, UK",
+    topic: "Networks",
+    status: "open",
+    paperDeadline: "Apr 22, 2026",
+    notificationDate: "Jun 30, 2026",
+    cameraReady: "Aug 10, 2026",
+    url: "#"
+  },
+  {
+    title: "ICSE 2026 – International Conference on Software Engineering",
+    month: "May", day: "09", year: "2026",
+    location: "Tokyo, Japan",
+    topic: "Software Engineering",
+    status: "closed",
+    paperDeadline: "Jan 20, 2026",
+    notificationDate: "Mar 01, 2026",
+    cameraReady: "Apr 05, 2026",
+    url: "#"
+  },
+  {
+    title: "IROS 2026 – IEEE/RSJ International Conference on Intelligent Robots and Systems",
+    month: "Oct", day: "26", year: "2026",
+    location: "Dubai, UAE",
+    topic: "Robotics",
+    status: "open",
+    paperDeadline: "Jun 01, 2026",
+    notificationDate: "Aug 01, 2026",
+    cameraReady: "Sep 15, 2026",
+    url: "#"
+  },
+  {
+    title: "ACL 2026 – Annual Meeting of the Association for Computational Linguistics",
+    month: "Aug", day: "02", year: "2026",
+    location: "Sydney, Australia",
+    topic: "NLP",
+    status: "open",
+    paperDeadline: "Apr 15, 2026",
+    notificationDate: "Jun 10, 2026",
+    cameraReady: "Jul 20, 2026",
+    url: "#"
+  },
+  {
+    title: "CCS 2026 – ACM Conference on Computer and Communications Security",
+    month: "Nov", day: "10", year: "2026",
+    location: "Singapore",
+    topic: "Security",
+    status: "open",
+    paperDeadline: "May 20, 2026",
+    notificationDate: "Jul 25, 2026",
+    cameraReady: "Sep 05, 2026",
+    url: "#"
+  }
+];
+
+// ── Sidebar topic data ──
+const topics = [
+  { name: "Artificial Intelligence", count: 12 },
+  { name: "Machine Learning",        count: 9  },
+  { name: "Computer Vision",         count: 7  },
+  { name: "Natural Language Processing", count: 6 },
+  { name: "Software Engineering",    count: 5  },
+  { name: "Robotics",                count: 4  },
+  { name: "Networks &amp; Systems",       count: 4  },
+  { name: "Cybersecurity",           count: 3  },
+  { name: "Human-Computer Interaction", count: 3 },
+  { name: "Databases",               count: 2  }
+];
+
+// ── State ──
+let currentMonth = 'all';
+let searchQuery  = '';
+
+// ── Render conference cards ──
+function renderConferences(list) {
+  const el = document.getElementById('conferenceList');
+  el.innerHTML = list.map(c => `
+    <div class="conf-card" data-month="${c.month}" data-title="${c.title.toLowerCase()}" data-location="${c.location.toLowerCase()}" data-topic="${c.topic.toLowerCase()}">
+      <div class="conf-card-top">
+        <div class="conf-date-box">
+          <div class="month">${c.month}</div>
+          <div class="day">${c.day}</div>
+          <div class="year">${c.year}</div>
+        </div>
+        <div class="conf-info">
+          <h3><a href="${c.url}">${c.title}</a></h3>
+          <div class="conf-meta">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ${c.location}
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Paper deadline: ${c.paperDeadline}
+            </span>
+          </div>
+        </div>
+        <span class="status-badge status-${c.status}">${c.status === 'open' ? '● Open' : c.status === 'soon' ? '⏳ Soon' : '✕ Closed'}</span>
+      </div>
+      <div class="conf-card-footer">
+        <div class="deadline-item">
+          <div class="dl-label">Paper Deadline</div>
+          <div class="dl-value">${c.paperDeadline}</div>
+        </div>
+        <div class="deadline-item">
+          <div class="dl-label">Notification</div>
+          <div class="dl-value">${c.notificationDate}</div>
+        </div>
+        <div class="deadline-item">
+          <div class="dl-label">Camera Ready</div>
+          <div class="dl-value">${c.cameraReady}</div>
+        </div>
+        <a href="${c.url}" class="more-link">Details →</a>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('resultCount').textContent = `Showing ${list.length} conference${list.length !== 1 ? 's' : ''}`;
+}
+
+// ── Render sidebar topics ──
+function renderTopics() {
+  document.getElementById('topicList').innerHTML = topics.map(t => `
+    <li>
+      <a href="#" onclick="filterTopic('${t.name.replace(/&amp;/g,'&').toLowerCase()}'); return false;">${t.name}</a>
+      <span class="count">${t.count}</span>
+    </li>
+  `).join('');
+}
+
+// ── Render upcoming sidebar ──
+function renderUpcoming() {
+  const sorted = [...conferences].sort((a,b) => {
+    const mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return (mo.indexOf(a.month)*31 + +a.day) - (mo.indexOf(b.month)*31 + +b.day);
+  }).slice(0, 4);
+
+  document.getElementById('upcomingSidebar').innerHTML = sorted.map(c => `
+    <div class="upcoming-item">
+      <div class="upcoming-mini-date">
+        <div class="m">${c.month}</div>
+        <div class="d">${c.day}</div>
+      </div>
+      <div>
+        <h4>${c.title.split('–')[0].trim()}</h4>
+        <p>${c.location}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── Filtering ──
+function applyFilters() {
+  let list = conferences;
+  if (currentMonth !== 'all') list = list.filter(c => c.month === currentMonth);
+  if (searchQuery)             list = list.filter(c =>
+    c.title.toLowerCase().includes(searchQuery) ||
+    c.location.toLowerCase().includes(searchQuery) ||
+    c.topic.toLowerCase().includes(searchQuery)
+  );
+  renderConferences(list);
+}
+
+function filterMonth(m, btn) {
+  currentMonth = m;
+  document.querySelectorAll('.month-tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function filterConferences() {
+  searchQuery = document.getElementById('searchInput').value.toLowerCase();
+  applyFilters();
+}
+
+function filterTopic(topic) {
+  document.getElementById('searchInput').value = topic;
+  searchQuery = topic;
+  currentMonth = 'all';
+  document.querySelectorAll('.month-tabs button').forEach(b => b.classList.remove('active'));
+  document.querySelector('.month-tabs button').classList.add('active');
+  applyFilters();
+}
+
+// ── Init ──
+renderConferences(conferences);
+renderTopics();
+renderUpcoming();
+</script>
+</body>
+</html>
