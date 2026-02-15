@@ -252,6 +252,18 @@
   .status-soon   { background: #fef3c7; color: var(--amber); }
   .status-closed { background: #fee2e2; color: var(--red); }
 
+  /* CORE ranking badge */
+  .badges { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+  .rank-badge {
+    font-size: .68rem; font-weight: 700;
+    padding: 3px 8px; border-radius: 12px;
+    white-space: nowrap; letter-spacing: .03em;
+  }
+  .rank-astar { background: #f3e8ff; color: #7e22ce; }
+  .rank-a     { background: #dbeafe; color: #1d4ed8; }
+  .rank-b     { background: #e0f2fe; color: #0e7490; }
+  .rank-c     { background: #f1f5f9; color: #64748b; }
+
   /* card footer / deadlines */
   .conf-card-footer {
     border-top: 1px solid var(--grey-200);
@@ -433,7 +445,7 @@
 
     <div class="section-header">
       <h2>Conference Listings</h2>
-      <span id="resultCount">Showing 8 conferences</span>
+      <span id="resultCount">Showing conferences</span>
     </div>
 
     <div id="conferenceList">
@@ -492,113 +504,39 @@
   </div>
 </footer>
 
-<!-- ─── DATA + LOGIC ─── -->
-<script>
-// ── Conference data ──  (edit this array to add/remove conferences!)
-const conferences = [
-  {
-    title: "ICML 2026 – International Conference on Machine Learning",
-    month: "Jul", day: "13", year: "2026",
-    location: "Montreal, Canada",
-    topic: "Machine Learning",
-    status: "open",          // open | soon | closed
-    paperDeadline: "Feb 06, 2026",
-    notificationDate: "Apr 01, 2026",
-    cameraReady: "May 15, 2026",
-    url: "#"
-  },
-  {
-    title: "NeurIPS 2026 – Conference on Neural Information Processing Systems",
-    month: "Dec", day: "07", year: "2026",
-    location: "San Diego, USA",
-    topic: "Deep Learning",
-    status: "open",
-    paperDeadline: "May 15, 2026",
-    notificationDate: "Sep 10, 2026",
-    cameraReady: "Oct 20, 2026",
-    url: "#"
-  },
-  {
-    title: "CVPR 2026 – IEEE/CVF Conference on Computer Vision and Pattern Recognition",
-    month: "Jun", day: "21", year: "2026",
-    location: "Seattle, USA",
-    topic: "Computer Vision",
-    status: "soon",
-    paperDeadline: "Mar 10, 2026",
-    notificationDate: "Apr 25, 2026",
-    cameraReady: "May 30, 2026",
-    url: "#"
-  },
-  {
-    title: "SIGCOMM 2026 – ACM Conference on Applications, Technologies, Protocols &amp; Data Structures for Communication Networks",
-    month: "Sep", day: "14", year: "2026",
-    location: "London, UK",
-    topic: "Networks",
-    status: "open",
-    paperDeadline: "Apr 22, 2026",
-    notificationDate: "Jun 30, 2026",
-    cameraReady: "Aug 10, 2026",
-    url: "#"
-  },
-  {
-    title: "ICSE 2026 – International Conference on Software Engineering",
-    month: "May", day: "09", year: "2026",
-    location: "Tokyo, Japan",
-    topic: "Software Engineering",
-    status: "closed",
-    paperDeadline: "Jan 20, 2026",
-    notificationDate: "Mar 01, 2026",
-    cameraReady: "Apr 05, 2026",
-    url: "#"
-  },
-  {
-    title: "IROS 2026 – IEEE/RSJ International Conference on Intelligent Robots and Systems",
-    month: "Oct", day: "26", year: "2026",
-    location: "Dubai, UAE",
-    topic: "Robotics",
-    status: "open",
-    paperDeadline: "Jun 01, 2026",
-    notificationDate: "Aug 01, 2026",
-    cameraReady: "Sep 15, 2026",
-    url: "#"
-  },
-  {
-    title: "ACL 2026 – Annual Meeting of the Association for Computational Linguistics",
-    month: "Aug", day: "02", year: "2026",
-    location: "Sydney, Australia",
-    topic: "NLP",
-    status: "open",
-    paperDeadline: "Apr 15, 2026",
-    notificationDate: "Jun 10, 2026",
-    cameraReady: "Jul 20, 2026",
-    url: "#"
-  },
-  {
-    title: "CCS 2026 – ACM Conference on Computer and Communications Security",
-    month: "Nov", day: "10", year: "2026",
-    location: "Singapore",
-    topic: "Security",
-    status: "open",
-    paperDeadline: "May 20, 2026",
-    notificationDate: "Jul 25, 2026",
-    cameraReady: "Sep 05, 2026",
-    url: "#"
-  }
-];
+<!-- ─── DATA (edit conferences.js to add/remove conferences) ─── -->
+<script src="conferences.js"></script>
 
-// ── Sidebar topic data ──
-const topics = [
-  { name: "Artificial Intelligence", count: 12 },
-  { name: "Machine Learning",        count: 9  },
-  { name: "Computer Vision",         count: 7  },
-  { name: "Natural Language Processing", count: 6 },
-  { name: "Software Engineering",    count: 5  },
-  { name: "Robotics",                count: 4  },
-  { name: "Networks &amp; Systems",       count: 4  },
-  { name: "Cybersecurity",           count: 3  },
-  { name: "Human-Computer Interaction", count: 3 },
-  { name: "Databases",               count: 2  }
-];
+<!-- ─── LOGIC ─── -->
+<script>
+// ── Auto-compute submission status from deadline date ──
+function getStatus(deadlineStr) {
+  const deadline = new Date(deadlineStr);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const diffDays = (deadline - today) / (1000 * 60 * 60 * 24);
+  if (diffDays < 0)  return 'closed';
+  if (diffDays <= 14) return 'soon';
+  return 'open';
+}
+
+// ── Build rank badge HTML ──
+function rankBadge(rank) {
+  if (!rank) return '';
+  const cls = rank === 'A*' ? 'rank-astar' : rank === 'A' ? 'rank-a' : rank === 'B' ? 'rank-b' : 'rank-c';
+  return `<span class="rank-badge ${cls}">CORE ${rank}</span>`;
+}
+
+// ── Build topics from data ──
+function buildTopics() {
+  const counts = {};
+  conferences.forEach(c => {
+    counts[c.topic] = (counts[c.topic] || 0) + 1;
+  });
+  return Object.entries(counts)
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count);
+}
 
 // ── State ──
 let currentMonth = 'all';
@@ -607,8 +545,10 @@ let searchQuery  = '';
 // ── Render conference cards ──
 function renderConferences(list) {
   const el = document.getElementById('conferenceList');
-  el.innerHTML = list.map(c => `
-    <div class="conf-card" data-month="${c.month}" data-title="${c.title.toLowerCase()}" data-location="${c.location.toLowerCase()}" data-topic="${c.topic.toLowerCase()}">
+  el.innerHTML = list.map(c => {
+    const status = getStatus(c.paperDeadline);
+    return `
+    <div class="conf-card" data-month="${c.month}">
       <div class="conf-card-top">
         <div class="conf-date-box">
           <div class="month">${c.month}</div>
@@ -616,7 +556,7 @@ function renderConferences(list) {
           <div class="year">${c.year}</div>
         </div>
         <div class="conf-info">
-          <h3><a href="${c.url}">${c.title}</a></h3>
+          <h3><a href="${c.url}" target="_blank" rel="noopener">${c.title}</a></h3>
           <div class="conf-meta">
             <span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -628,7 +568,10 @@ function renderConferences(list) {
             </span>
           </div>
         </div>
-        <span class="status-badge status-${c.status}">${c.status === 'open' ? '● Open' : c.status === 'soon' ? '⏳ Soon' : '✕ Closed'}</span>
+        <div class="badges">
+          <span class="status-badge status-${status}">${status === 'open' ? '● Open' : status === 'soon' ? '⏳ Soon' : '✕ Closed'}</span>
+          ${rankBadge(c.rank)}
+        </div>
       </div>
       <div class="conf-card-footer">
         <div class="deadline-item">
@@ -643,19 +586,20 @@ function renderConferences(list) {
           <div class="dl-label">Camera Ready</div>
           <div class="dl-value">${c.cameraReady}</div>
         </div>
-        <a href="${c.url}" class="more-link">Details →</a>
+        <a href="${c.url}" target="_blank" rel="noopener" class="more-link">Details →</a>
       </div>
     </div>
-  `).join('');
+  `;}).join('');
 
   document.getElementById('resultCount').textContent = `Showing ${list.length} conference${list.length !== 1 ? 's' : ''}`;
 }
 
-// ── Render sidebar topics ──
+// ── Render sidebar topics (auto-computed) ──
 function renderTopics() {
+  const topics = buildTopics();
   document.getElementById('topicList').innerHTML = topics.map(t => `
     <li>
-      <a href="#" onclick="filterTopic('${t.name.replace(/&amp;/g,'&').toLowerCase()}'); return false;">${t.name}</a>
+      <a href="#" onclick="filterTopic('${t.name.toLowerCase()}'); return false;">${t.name}</a>
       <span class="count">${t.count}</span>
     </li>
   `).join('');
@@ -663,10 +607,12 @@ function renderTopics() {
 
 // ── Render upcoming sidebar ──
 function renderUpcoming() {
-  const sorted = [...conferences].sort((a,b) => {
-    const mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    return (mo.indexOf(a.month)*31 + +a.day) - (mo.indexOf(b.month)*31 + +b.day);
-  }).slice(0, 4);
+  const today = new Date();
+  const sorted = [...conferences]
+    .map(c => ({ ...c, _date: new Date(`${c.month} ${c.day}, ${c.year}`) }))
+    .filter(c => c._date >= today)
+    .sort((a, b) => a._date - b._date)
+    .slice(0, 4);
 
   document.getElementById('upcomingSidebar').innerHTML = sorted.map(c => `
     <div class="upcoming-item">
@@ -689,7 +635,8 @@ function applyFilters() {
   if (searchQuery)             list = list.filter(c =>
     c.title.toLowerCase().includes(searchQuery) ||
     c.location.toLowerCase().includes(searchQuery) ||
-    c.topic.toLowerCase().includes(searchQuery)
+    c.topic.toLowerCase().includes(searchQuery) ||
+    (c.rank && c.rank.toLowerCase() === searchQuery)
   );
   renderConferences(list);
 }
