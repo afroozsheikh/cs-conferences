@@ -278,6 +278,123 @@ const conferences = [
     url: "https://kdd2026.kdd.org/"
   },
 
+  // ── Web & Knowledge Management ─────────────────────────────
+
+  {
+    // Source: https://www2026.thewebconf.org/important-dates.html
+    title: "TheWebConf 2026 – The Web Conference (WWW)",
+    month: "Apr", day: "13", year: "2026",
+    location: "Dubai, UAE",
+    topic: "Web & Networks",
+    rank: "A*",
+    paperDeadline: "Oct 07, 2025",
+    notificationDate: "Jan 13, 2026",
+    cameraReady: "Jan 25, 2026",
+    url: "https://www2026.thewebconf.org/"
+  },
+  {
+    // Source: https://wsdm-conference.org/2026/ & search results
+    title: "WSDM 2026 – ACM International Conference on Web Search and Data Mining",
+    month: "Feb", day: "22", year: "2026",
+    location: "Boise, USA",
+    topic: "Web & Networks",
+    rank: "A",
+    paperDeadline: "Aug 14, 2025",
+    notificationDate: "Oct 23, 2025",
+    cameraReady: "TBD",
+    url: "https://wsdm-conference.org/2026/"
+  },
+
+  // CIKM 2026: Confirmed Rome, Italy, Oct 26-30, 2026
+  // BUT call for papers / submission deadlines NOT yet announced.
+  // Uncomment when deadlines are published.
+  // {
+  //   title: "CIKM 2026 – ACM Conference on Information and Knowledge Management",
+  //   month: "Oct", day: "26", year: "2026",
+  //   location: "Rome, Italy",
+  //   topic: "Information Retrieval",
+  //   rank: "A",
+  //   paperDeadline: "TBD",
+  //   notificationDate: "TBD",
+  //   cameraReady: "TBD",
+  //   url: "https://www.cikmconference.org/"
+  // },
+
+  // ── Data Engineering & Mining ──────────────────────────────
+
+  {
+    // Source: https://icde2026.github.io/important-dates.html
+    // Two rounds: Round 1 deadline Jun 18 2025, Round 2 deadline Oct 27 2025
+    title: "ICDE 2026 – IEEE International Conference on Data Engineering",
+    month: "May", day: "4", year: "2026",
+    location: "Montreal, Canada",
+    topic: "Data Engineering",
+    rank: "A*",
+    paperDeadline: "Oct 27, 2025",
+    notificationDate: "Feb 23, 2026",
+    cameraReady: "Mar 06, 2026",
+    url: "https://icde2026.github.io/"
+  },
+  {
+    // Source: http://icdm2026.neu.edu.cn/ & search results
+    title: "ICDM 2026 – IEEE International Conference on Data Mining",
+    month: "Nov", day: "12", year: "2026",
+    location: "Shenyang, China",
+    topic: "Data Mining",
+    rank: "A*",
+    paperDeadline: "Jun 06, 2026",
+    notificationDate: "Aug 16, 2026",
+    cameraReady: "TBD",
+    url: "http://icdm2026.neu.edu.cn/"
+  },
+
+  // SDM 2026: Confirmed Salt Lake City, Nov 19-20, 2026
+  // BUT call for papers / submission deadlines NOT yet announced.
+  // Uncomment when deadlines are published.
+  // {
+  //   title: "SDM 2026 – SIAM International Conference on Data Mining",
+  //   month: "Nov", day: "19", year: "2026",
+  //   location: "Salt Lake City, USA",
+  //   topic: "Data Mining",
+  //   rank: "B",
+  //   paperDeadline: "TBD",
+  //   notificationDate: "TBD",
+  //   cameraReady: "TBD",
+  //   url: "https://www.siam.org/conferences-events/siam-conferences/sdm26/"
+  // },
+
+  // ── NLP (continued) ───────────────────────────────────────
+
+  // EMNLP 2026: Confirmed Budapest, Hungary, Oct 22-29, 2026
+  // Uses ACL Rolling Review (ARR). Specific commitment deadline TBD.
+  // Uncomment when deadlines are published.
+  // {
+  //   title: "EMNLP 2026 – Conference on Empirical Methods in Natural Language Processing",
+  //   month: "Oct", day: "22", year: "2026",
+  //   location: "Budapest, Hungary",
+  //   topic: "NLP",
+  //   rank: "A*",
+  //   paperDeadline: "TBD",
+  //   notificationDate: "TBD",
+  //   cameraReady: "TBD",
+  //   url: "https://2026.emnlp.org/"
+  // },
+
+  // ── Recommender Systems ────────────────────────────────────
+
+  {
+    // Source: https://recsys.acm.org/recsys26/call/
+    title: "RecSys 2026 – ACM Conference on Recommender Systems",
+    month: "Sep", day: "28", year: "2026",
+    location: "Minneapolis, USA",
+    topic: "Recommender Systems",
+    rank: "A",
+    paperDeadline: "Apr 21, 2026",
+    notificationDate: "Jul 09, 2026",
+    cameraReady: "Jul 27, 2026",
+    url: "https://recsys.acm.org/recsys26/"
+  },
+
   // ── Conceptual Modeling ────────────────────────────────────
 
   {

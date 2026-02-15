@@ -628,6 +628,15 @@ function renderUpcoming() {
   `).join('');
 }
 
+// ── Sort by paper deadline (earliest first) ──
+function sortByDeadline(list) {
+  return [...list].sort((a, b) => {
+    const da = a.paperDeadline === 'TBD' ? Infinity : new Date(a.paperDeadline).getTime();
+    const db = b.paperDeadline === 'TBD' ? Infinity : new Date(b.paperDeadline).getTime();
+    return da - db;
+  });
+}
+
 // ── Filtering ──
 function applyFilters() {
   let list = conferences;
@@ -638,7 +647,7 @@ function applyFilters() {
     c.topic.toLowerCase().includes(searchQuery) ||
     (c.rank && c.rank.toLowerCase() === searchQuery)
   );
-  renderConferences(list);
+  renderConferences(sortByDeadline(list));
 }
 
 function filterMonth(m, btn) {
