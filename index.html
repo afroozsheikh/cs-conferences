@@ -173,6 +173,27 @@
     background: var(--blue); color: var(--white); border-color: var(--blue);
   }
 
+  /* ─── HIDE CLOSED TOGGLE ─── */
+  .toggle-wrap {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 18px;
+  }
+  .toggle-wrap label {
+    font-size: .84rem; font-weight: 500; color: var(--grey-600); cursor: pointer;
+  }
+  .toggle {
+    position: relative; width: 40px; height: 22px;
+    background: var(--grey-200); border-radius: 12px;
+    cursor: pointer; transition: background .2s; border: none; padding: 0;
+  }
+  .toggle::after {
+    content: ''; position: absolute; top: 3px; left: 3px;
+    width: 16px; height: 16px; background: var(--white);
+    border-radius: 50%; transition: transform .2s;
+  }
+  .toggle.active { background: var(--blue); }
+  .toggle.active::after { transform: translateX(18px); }
+
   /* ─── SECTION LABEL ─── */
   .section-header {
     display: flex; align-items: baseline; justify-content: space-between;
@@ -443,6 +464,12 @@
       <button onclick="filterMonth('Dec', this)">Dec 2026</button>
     </div>
 
+    <!-- Hide closed toggle -->
+    <div class="toggle-wrap">
+      <label for="hideClosedToggle">Hide closed conferences</label>
+      <button class="toggle active" id="hideClosedToggle" onclick="toggleHideClosed(this)"></button>
+    </div>
+
     <div class="section-header">
       <h2>Conference Listings</h2>
       <span id="resultCount">Showing conferences</span>
@@ -541,6 +568,7 @@ function buildTopics() {
 // ── State ──
 let currentMonth = 'all';
 let searchQuery  = '';
+let hideClosed   = true;
 
 // ── Render conference cards ──
 function renderConferences(list) {
@@ -637,9 +665,17 @@ function sortByDeadline(list) {
   });
 }
 
+// ── Toggle hide closed ──
+function toggleHideClosed(btn) {
+  hideClosed = !hideClosed;
+  btn.classList.toggle('active', hideClosed);
+  applyFilters();
+}
+
 // ── Filtering ──
 function applyFilters() {
   let list = conferences;
+  if (hideClosed) list = list.filter(c => getStatus(c.paperDeadline) !== 'closed');
   if (currentMonth !== 'all') list = list.filter(c => c.month === currentMonth);
   if (searchQuery)             list = list.filter(c =>
     c.title.toLowerCase().includes(searchQuery) ||
@@ -672,7 +708,7 @@ function filterTopic(topic) {
 }
 
 // ── Init ──
-renderConferences(sortByDeadline(conferences));
+applyFilters();
 renderTopics();
 renderUpcoming();
 </script>
