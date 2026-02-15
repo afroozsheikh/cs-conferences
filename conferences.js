@@ -250,6 +250,34 @@ const conferences = [
     url: "https://www.sigsac.org/ccs/CCS2026/"
   },
 
+  // ── Information Retrieval & Data Mining ─────────────────────
+
+  {
+    // Source: https://openreview.net/group?id=ACM.org/SIGIR/2026/Conference
+    title: "SIGIR 2026 – ACM SIGIR Conference on Research and Development in Information Retrieval",
+    month: "Jul", day: "20", year: "2026",
+    location: "Melbourne, Australia",
+    topic: "Information Retrieval",
+    rank: "A*",
+    paperDeadline: "Jan 23, 2026",
+    notificationDate: "TBD",
+    cameraReady: "TBD",
+    url: "https://sigir2026.org/en-AU"
+  },
+  {
+    // Source: https://kdd2026.kdd.org/research-track-call-for-papers/
+    // Two cycles: Cycle 1 deadline Jul 31 2025, Cycle 2 deadline Feb 8 2026
+    title: "KDD 2026 – ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+    month: "Aug", day: "9", year: "2026",
+    location: "Jeju, South Korea",
+    topic: "Data Mining",
+    rank: "A*",
+    paperDeadline: "Feb 08, 2026",
+    notificationDate: "May 16, 2026",
+    cameraReady: "TBD",
+    url: "https://kdd2026.kdd.org/"
+  },
+
   // ── Conceptual Modeling ────────────────────────────────────
 
   {
