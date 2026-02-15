@@ -29,221 +29,244 @@ const conferences = [
   // ── Machine Learning & AI ──────────────────────────────────
 
   {
+    // Source: https://icml.cc/Conferences/2026 & /CallForPapers
     title: "ICML 2026 – International Conference on Machine Learning",
-    month: "Jul", day: "13", year: "2026",
-    location: "Montreal, Canada",
+    month: "Jul", day: "6", year: "2026",
+    location: "Seoul, South Korea",
     topic: "Machine Learning",
     rank: "A*",
-    paperDeadline: "Feb 06, 2026",
-    notificationDate: "Apr 01, 2026",
-    cameraReady: "May 15, 2026",
-    url: "https://icml.cc/"
+    paperDeadline: "Jan 28, 2026",
+    notificationDate: "Apr 30, 2026",
+    cameraReady: "TBD",
+    url: "https://icml.cc/Conferences/2026"
   },
-  {
-    title: "NeurIPS 2026 – Conference on Neural Information Processing Systems",
-    month: "Dec", day: "07", year: "2026",
-    location: "San Diego, USA",
-    topic: "Machine Learning",
-    rank: "A*",
-    paperDeadline: "May 15, 2026",
-    notificationDate: "Sep 10, 2026",
-    cameraReady: "Oct 20, 2026",
-    url: "https://neurips.cc/"
-  },
+
+  // NeurIPS 2026: Confirmed Sydney, Australia, Dec 6-12, 2026
+  // BUT call for papers / submission deadlines NOT yet announced.
+  // Uncomment when deadlines are published.
+  // {
+  //   title: "NeurIPS 2026 – Conference on Neural Information Processing Systems",
+  //   month: "Dec", day: "6", year: "2026",
+  //   location: "Sydney, Australia",
+  //   topic: "Machine Learning",
+  //   rank: "A*",
+  //   paperDeadline: "TBD",
+  //   notificationDate: "TBD",
+  //   cameraReady: "TBD",
+  //   url: "https://neurips.cc/"
+  // },
 
   // ── Computer Vision ────────────────────────────────────────
 
   {
+    // Source: https://cvpr.thecvf.com/Conferences/2026
     title: "CVPR 2026 – IEEE/CVF Conference on Computer Vision and Pattern Recognition",
-    month: "Jun", day: "21", year: "2026",
-    location: "Seattle, USA",
+    month: "Jun", day: "3", year: "2026",
+    location: "Denver, USA",
     topic: "Computer Vision",
     rank: "A*",
-    paperDeadline: "Mar 10, 2026",
-    notificationDate: "Apr 25, 2026",
-    cameraReady: "May 30, 2026",
-    url: "https://cvpr.thecvf.com/"
+    paperDeadline: "Nov 13, 2025",
+    notificationDate: "Feb 20, 2026",
+    cameraReady: "TBD",
+    url: "https://cvpr.thecvf.com/Conferences/2026"
   },
   {
-    title: "ICCV 2026 – IEEE International Conference on Computer Vision",
-    month: "Oct", day: "12", year: "2026",
-    location: "TBD",
+    // Source: https://iccv.thecvf.com/Conferences/2025/Dates
+    // Note: ICCV is odd-year; next is 2025, not 2026
+    title: "ICCV 2025 – IEEE International Conference on Computer Vision",
+    month: "Oct", day: "19", year: "2025",
+    location: "Honolulu, USA",
     topic: "Computer Vision",
     rank: "A*",
-    paperDeadline: "Mar 07, 2026",
-    notificationDate: "Jun 15, 2026",
-    cameraReady: "Aug 01, 2026",
-    url: "https://iccv.thecvf.com/"
+    paperDeadline: "Mar 07, 2025",
+    notificationDate: "Jun 25, 2025",
+    cameraReady: "TBD",
+    url: "https://iccv.thecvf.com/Conferences/2025"
   },
   {
+    // Source: https://eccv.ecva.net/Conferences/2026
     title: "ECCV 2026 – European Conference on Computer Vision",
-    month: "Sep", day: "28", year: "2026",
-    location: "TBD",
+    month: "Sep", day: "8", year: "2026",
+    location: "Malmö, Sweden",
     topic: "Computer Vision",
     rank: "A*",
-    paperDeadline: "Mar 01, 2026",
-    notificationDate: "Jun 01, 2026",
-    cameraReady: "Jul 15, 2026",
-    url: "https://eccv.ecva.net/"
+    paperDeadline: "Mar 05, 2026",
+    notificationDate: "Jun 17, 2026",
+    cameraReady: "Jun 26, 2026",
+    url: "https://eccv.ecva.net/Conferences/2026"
   },
   {
+    // Source: https://wacv.thecvf.com/Conferences/2026/Dates
     title: "WACV 2026 – IEEE Winter Conference on Applications of Computer Vision",
-    month: "Feb", day: "28", year: "2026",
+    month: "Mar", day: "6", year: "2026",
     location: "Tucson, USA",
     topic: "Computer Vision",
     rank: "B",
-    paperDeadline: "Jul 15, 2025",
-    notificationDate: "Oct 10, 2025",
-    cameraReady: "Nov 15, 2025",
-    url: "https://wacv2026.thecvf.com/"
+    paperDeadline: "Sep 19, 2025",
+    notificationDate: "Nov 06, 2025",
+    cameraReady: "TBD",
+    url: "https://wacv.thecvf.com/Conferences/2026"
   },
   {
+    // Source: https://bmvc2026.bmva.org/calls/call-for-papers/
     title: "BMVC 2026 – British Machine Vision Conference",
-    month: "Nov", day: "24", year: "2026",
-    location: "TBD",
+    month: "Nov", day: "23", year: "2026",
+    location: "Lancaster, UK",
     topic: "Computer Vision",
     rank: "A",
-    paperDeadline: "May 02, 2026",
-    notificationDate: "Aug 01, 2026",
-    cameraReady: "Sep 15, 2026",
-    url: "https://www.bmva.org/bmvc/"
+    paperDeadline: "May 29, 2026",
+    notificationDate: "Aug 07, 2026",
+    cameraReady: "Aug 28, 2026",
+    url: "https://bmvc2026.bmva.org/"
   },
 
   // ── Pattern Recognition & Image Processing ─────────────────
 
   {
+    // Source: https://icpr2026.org/dates.html
     title: "ICPR 2026 – International Conference on Pattern Recognition",
-    month: "Sep", day: "14", year: "2026",
-    location: "TBD",
+    month: "Aug", day: "17", year: "2026",
+    location: "Lyon, France",
     topic: "Pattern Recognition",
     rank: "B",
-    paperDeadline: "Mar 15, 2026",
-    notificationDate: "Jun 01, 2026",
-    cameraReady: "Jul 15, 2026",
-    url: "https://www.icpr2026.org/"
+    paperDeadline: "Jan 10, 2026",
+    notificationDate: "Mar 31, 2026",
+    cameraReady: "May 04, 2026",
+    url: "https://icpr2026.org/"
   },
   {
+    // Source: https://2026.ieeeicip.org/important-dates/
     title: "ICIP 2026 – IEEE International Conference on Image Processing",
-    month: "Oct", day: "19", year: "2026",
-    location: "TBD",
+    month: "Sep", day: "13", year: "2026",
+    location: "Tampere, Finland",
     topic: "Image Processing",
     rank: "B",
-    paperDeadline: "Feb 15, 2026",
-    notificationDate: "May 15, 2026",
-    cameraReady: "Jul 01, 2026",
+    paperDeadline: "Feb 04, 2026",
+    notificationDate: "TBD",
+    cameraReady: "TBD",
     url: "https://2026.ieeeicip.org/"
   },
 
   // ── Medical Imaging ────────────────────────────────────────
 
   {
+    // Source: https://miccai.org/
     title: "MICCAI 2026 – International Conference on Medical Image Computing and Computer Assisted Intervention",
-    month: "Oct", day: "05", year: "2026",
-    location: "TBD",
+    month: "Oct", day: "4", year: "2026",
+    location: "Abu Dhabi, UAE",
     topic: "Medical Imaging",
     rank: "A",
-    paperDeadline: "Mar 01, 2026",
-    notificationDate: "Jun 01, 2026",
-    cameraReady: "Jul 15, 2026",
-    url: "https://www.miccai.org/"
+    paperDeadline: "Feb 26, 2026",
+    notificationDate: "TBD",
+    cameraReady: "TBD",
+    url: "https://miccai.org/"
   },
   {
+    // Source: https://biomedicalimaging.org/2026/ & search results
     title: "ISBI 2026 – IEEE International Symposium on Biomedical Imaging",
-    month: "Apr", day: "13", year: "2026",
-    location: "TBD",
+    month: "Apr", day: "8", year: "2026",
+    location: "London, UK",
     topic: "Medical Imaging",
     rank: "B",
-    paperDeadline: "Nov 15, 2025",
-    notificationDate: "Jan 15, 2026",
-    cameraReady: "Feb 15, 2026",
-    url: "https://biomedicalimaging.org/"
+    paperDeadline: "Oct 31, 2025",
+    notificationDate: "TBD",
+    cameraReady: "TBD",
+    url: "https://biomedicalimaging.org/2026/"
   },
 
   // ── NLP ────────────────────────────────────────────────────
 
   {
+    // Source: https://2026.aclweb.org/
     title: "ACL 2026 – Annual Meeting of the Association for Computational Linguistics",
-    month: "Aug", day: "02", year: "2026",
-    location: "Sydney, Australia",
+    month: "Jul", day: "2", year: "2026",
+    location: "San Diego, USA",
     topic: "NLP",
     rank: "A*",
-    paperDeadline: "Apr 15, 2026",
-    notificationDate: "Jun 10, 2026",
-    cameraReady: "Jul 20, 2026",
-    url: "https://www.2026.aclweb.org/"
+    paperDeadline: "Jan 05, 2026",
+    notificationDate: "Apr 04, 2026",
+    cameraReady: "Apr 19, 2026",
+    url: "https://2026.aclweb.org/"
   },
 
   // ── Networks ───────────────────────────────────────────────
 
   {
+    // Source: https://conferences.sigcomm.org/sigcomm/2026/
     title: "SIGCOMM 2026 – ACM Conference on Applications, Technologies, Protocols for Computer Communication",
-    month: "Sep", day: "14", year: "2026",
-    location: "London, UK",
+    month: "Aug", day: "17", year: "2026",
+    location: "Denver, USA",
     topic: "Networks",
     rank: "A*",
-    paperDeadline: "Apr 22, 2026",
-    notificationDate: "Jun 30, 2026",
-    cameraReady: "Aug 10, 2026",
-    url: "https://www.sigcomm.org/"
+    paperDeadline: "Feb 06, 2026",
+    notificationDate: "TBD",
+    cameraReady: "TBD",
+    url: "https://conferences.sigcomm.org/sigcomm/2026/"
   },
 
   // ── Software Engineering ───────────────────────────────────
 
   {
+    // Source: https://conf.researchr.org/home/icse-2026 & hotcrp
     title: "ICSE 2026 – International Conference on Software Engineering",
-    month: "May", day: "09", year: "2026",
-    location: "Tokyo, Japan",
+    month: "Apr", day: "12", year: "2026",
+    location: "Rio de Janeiro, Brazil",
     topic: "Software Engineering",
     rank: "A*",
-    paperDeadline: "Jan 20, 2026",
-    notificationDate: "Mar 01, 2026",
-    cameraReady: "Apr 05, 2026",
+    paperDeadline: "Jul 19, 2025",
+    notificationDate: "TBD",
+    cameraReady: "TBD",
     url: "https://conf.researchr.org/home/icse-2026"
   },
 
   // ── Robotics ───────────────────────────────────────────────
 
   {
+    // Source: https://2026.ieee-iros.org/
     title: "IROS 2026 – IEEE/RSJ International Conference on Intelligent Robots and Systems",
-    month: "Oct", day: "26", year: "2026",
-    location: "Dubai, UAE",
+    month: "Sep", day: "27", year: "2026",
+    location: "Pittsburgh, USA",
     topic: "Robotics",
     rank: "A",
-    paperDeadline: "Jun 01, 2026",
-    notificationDate: "Aug 01, 2026",
-    cameraReady: "Sep 15, 2026",
-    url: "https://ieee-iros.org/"
+    paperDeadline: "Mar 02, 2026",
+    notificationDate: "Jun 16, 2026",
+    cameraReady: "Jul 10, 2026",
+    url: "https://2026.ieee-iros.org/"
   },
 
   // ── Security ───────────────────────────────────────────────
 
   {
+    // Source: https://www.sigsac.org/ccs/CCS2026/call-for/call-for-papers.html
+    // Two submission cycles: Cycle 1 deadline Jan 14, Cycle 2 deadline Apr 29
     title: "CCS 2026 – ACM Conference on Computer and Communications Security",
-    month: "Nov", day: "10", year: "2026",
-    location: "Singapore",
+    month: "Nov", day: "15", year: "2026",
+    location: "The Hague, Netherlands",
     topic: "Security",
     rank: "A*",
-    paperDeadline: "May 20, 2026",
-    notificationDate: "Jul 25, 2026",
-    cameraReady: "Sep 05, 2026",
+    paperDeadline: "Apr 29, 2026",
+    notificationDate: "Jul 17, 2026",
+    cameraReady: "Sep 17, 2026",
     url: "https://www.sigsac.org/ccs/CCS2026/"
   },
 
   // ── Conceptual Modeling ────────────────────────────────────
 
   {
+    // Source: https://er2026.org/dates.html
     title: "ER 2026 – International Conference on Conceptual Modeling",
-    month: "Oct", day: "05", year: "2026",
+    month: "Oct", day: "5", year: "2026",
     location: "St. John's, Canada",
     topic: "Data & Knowledge Engineering",
     rank: "A",
-    paperDeadline: "May 15, 2026",
-    notificationDate: "Jul 15, 2026",
-    cameraReady: "Aug 15, 2026",
+    paperDeadline: "May 12, 2026",
+    notificationDate: "Jul 14, 2026",
+    cameraReady: "Jul 28, 2026",
     url: "https://er2026.org/"
   },
 
   // ── IEEE SERVICES (World Congress on Services) ─────────────
+  // Source: https://services.conferences.computer.org/2026/info-for-authors/
 
   {
     title: "IEEE CLOUD 2026 – IEEE International Conference on Cloud Computing",
@@ -251,9 +274,9 @@ const conferences = [
     location: "Sydney, Australia",
     topic: "Cloud Computing",
     rank: "B",
-    paperDeadline: "Mar 15, 2026",
-    notificationDate: "May 01, 2026",
-    cameraReady: "Jun 01, 2026",
+    paperDeadline: "Mar 08, 2026",
+    notificationDate: "May 10, 2026",
+    cameraReady: "May 31, 2026",
     url: "https://services.conferences.computer.org/2026/cloud"
   },
   {
@@ -262,9 +285,9 @@ const conferences = [
     location: "Sydney, Australia",
     topic: "Cloud Computing",
     rank: "",
-    paperDeadline: "Mar 15, 2026",
-    notificationDate: "May 01, 2026",
-    cameraReady: "Jun 01, 2026",
+    paperDeadline: "Mar 08, 2026",
+    notificationDate: "May 10, 2026",
+    cameraReady: "May 31, 2026",
     url: "https://services.conferences.computer.org/2026/edge"
   },
   {
@@ -273,9 +296,9 @@ const conferences = [
     location: "Sydney, Australia",
     topic: "Digital Health",
     rank: "",
-    paperDeadline: "Mar 15, 2026",
-    notificationDate: "May 01, 2026",
-    cameraReady: "Jun 01, 2026",
+    paperDeadline: "Mar 08, 2026",
+    notificationDate: "May 10, 2026",
+    cameraReady: "May 31, 2026",
     url: "https://services.conferences.computer.org/2026/icdh"
   },
   {
@@ -284,9 +307,9 @@ const conferences = [
     location: "Sydney, Australia",
     topic: "Web Services",
     rank: "B",
-    paperDeadline: "Mar 15, 2026",
-    notificationDate: "May 01, 2026",
-    cameraReady: "Jun 01, 2026",
+    paperDeadline: "Mar 08, 2026",
+    notificationDate: "May 10, 2026",
+    cameraReady: "May 31, 2026",
     url: "https://services.conferences.computer.org/2026/icws/"
   },
   {
@@ -295,9 +318,9 @@ const conferences = [
     location: "Sydney, Australia",
     topic: "Quantum Computing",
     rank: "",
-    paperDeadline: "Mar 15, 2026",
-    notificationDate: "May 01, 2026",
-    cameraReady: "Jun 01, 2026",
+    paperDeadline: "Mar 08, 2026",
+    notificationDate: "May 10, 2026",
+    cameraReady: "May 31, 2026",
     url: "https://services.conferences.computer.org/2026/qsw"
   },
   {
@@ -306,9 +329,9 @@ const conferences = [
     location: "Sydney, Australia",
     topic: "Software Engineering",
     rank: "",
-    paperDeadline: "Mar 15, 2026",
-    notificationDate: "May 01, 2026",
-    cameraReady: "Jun 01, 2026",
+    paperDeadline: "Mar 08, 2026",
+    notificationDate: "May 10, 2026",
+    cameraReady: "May 31, 2026",
     url: "https://services.conferences.computer.org/2026/sse"
   },
 ];
