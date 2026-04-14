@@ -41,21 +41,6 @@ const conferences = [
     url: "https://icml.cc/Conferences/2026"
   },
 
-  // NeurIPS 2026: Confirmed Sydney, Australia, Dec 6-12, 2026
-  // BUT call for papers / submission deadlines NOT yet announced.
-  // Uncomment when deadlines are published.
-  // {
-  //   title: "NeurIPS 2026 – Conference on Neural Information Processing Systems",
-  //   month: "Dec", day: "6", year: "2026",
-  //   location: "Sydney, Australia",
-  //   topic: "Machine Learning",
-  //   rank: "A*",
-  //   paperDeadline: "TBD",
-  //   notificationDate: "TBD",
-  //   cameraReady: "TBD",
-  //   url: "https://neurips.cc/"
-  // },
-
   // ── Computer Vision ────────────────────────────────────────
 
   {
@@ -305,21 +290,6 @@ const conferences = [
     url: "https://wsdm-conference.org/2026/"
   },
 
-  // CIKM 2026: Confirmed Rome, Italy, Oct 26-30, 2026
-  // BUT call for papers / submission deadlines NOT yet announced.
-  // Uncomment when deadlines are published.
-  // {
-  //   title: "CIKM 2026 – ACM Conference on Information and Knowledge Management",
-  //   month: "Oct", day: "26", year: "2026",
-  //   location: "Rome, Italy",
-  //   topic: "Information Retrieval",
-  //   rank: "A",
-  //   paperDeadline: "TBD",
-  //   notificationDate: "TBD",
-  //   cameraReady: "TBD",
-  //   url: "https://www.cikmconference.org/"
-  // },
-
   // ── Data Engineering & Mining ──────────────────────────────
 
   {
@@ -335,19 +305,6 @@ const conferences = [
     cameraReady: "Mar 06, 2026",
     url: "https://icde2026.github.io/"
   },
-  {
-    // Source: http://icdm2026.neu.edu.cn/ & search results
-    title: "ICDM 2026 – IEEE International Conference on Data Mining",
-    month: "Nov", day: "12", year: "2026",
-    location: "Shenyang, China",
-    topic: "Data Mining",
-    rank: "A*",
-    paperDeadline: "Jun 06, 2026",
-    notificationDate: "Aug 16, 2026",
-    cameraReady: "TBD",
-    url: "http://icdm2026.neu.edu.cn/"
-  },
-
   // SDM 2026: Confirmed Salt Lake City, Nov 19-20, 2026
   // BUT call for papers / submission deadlines NOT yet announced.
   // Uncomment when deadlines are published.
@@ -364,21 +321,6 @@ const conferences = [
   // },
 
   // ── NLP (continued) ───────────────────────────────────────
-
-  // EMNLP 2026: Confirmed Budapest, Hungary, Oct 22-29, 2026
-  // Uses ACL Rolling Review (ARR). Specific commitment deadline TBD.
-  // Uncomment when deadlines are published.
-  // {
-  //   title: "EMNLP 2026 – Conference on Empirical Methods in Natural Language Processing",
-  //   month: "Oct", day: "22", year: "2026",
-  //   location: "Budapest, Hungary",
-  //   topic: "NLP",
-  //   rank: "A*",
-  //   paperDeadline: "TBD",
-  //   notificationDate: "TBD",
-  //   cameraReady: "TBD",
-  //   url: "https://2026.emnlp.org/"
-  // },
 
   // ── Recommender Systems ────────────────────────────────────
 
@@ -479,4 +421,192 @@ const conferences = [
     cameraReady: "May 31, 2026",
     url: "https://services.conferences.computer.org/2026/sse"
   },
+  {
+    title: "NeurIPS 2026 – Conference on Neural Information Processing Systems",
+    month: "Dec", day: "06", year: "2026",
+    location: "Sydney, Australia",
+    topic: "Machine Learning",
+    rank: "A*",
+    paperDeadline: "May 07, 2026",
+    notificationDate: "Sep 22, 2026",
+    cameraReady: "Oct 20, 2026",
+    url: "https://neurips.cc/Conferences/2026"
+  },
+  {
+    title: "AAAI 2027 – AAAI Conference on Artificial Intelligence",
+    month: "Feb", day: "16", year: "2027",
+    location: "Montréal, Canada",
+    topic: "General AI",
+    rank: "A*",
+    paperDeadline: "Sep 10, 2026",
+    notificationDate: "Dec 05, 2026",
+    cameraReady: "Jan 05, 2027",
+    url: "https://aaai.org/conference/aaai/aaai-27/"
+  },
+  {
+    title: "ICLR 2027 – International Conference on Learning Representations",
+    month: "Feb", day: "08", year: "2027",
+    location: "Lisbon, Portugal",
+    topic: "Deep Learning",
+    rank: "A*",
+    paperDeadline: "Sep 30, 2026",
+    notificationDate: "Jan 15, 2027",
+    cameraReady: "TBD",
+    url: "https://iclr.cc/"
+  },
+
+  // ── Computer Vision ────────────────────────────────────────
+
+  {
+    title: "ACCV 2026 – Asian Conference on Computer Vision",
+    month: "Dec", day: "14", year: "2026",
+    location: "Osaka, Japan",
+    topic: "Computer Vision",
+    rank: "B",
+    paperDeadline: "Jul 05, 2026",
+    notificationDate: "Sep 15, 2026",
+    cameraReady: "Oct 10, 2026",
+    url: "https://accv2026.org/"
+  },
+  {
+    title: "WACV 2027 – IEEE Winter Conference on Applications of Computer Vision",
+    month: "Mar", day: "01", year: "2027",
+    location: "TBD",
+    topic: "Computer Vision",
+    rank: "A",
+    paperDeadline: "Jul 18, 2026",
+    notificationDate: "Oct 27, 2026",
+    cameraReady: "Nov 15, 2026",
+    url: "https://wacv2027.thecvf.com/"
+  },
+  {
+    title: "CVPR 2027 – IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    month: "Jun", day: "19", year: "2027",
+    location: "Seattle, USA",
+    topic: "Computer Vision",
+    rank: "A*",
+    paperDeadline: "Nov 01, 2026",
+    notificationDate: "Feb 24, 2027",
+    cameraReady: "Mar 20, 2027",
+    url: "https://cvpr.thecvf.com/"
+  },
+  {
+    title: "ICCV 2027 – IEEE International Conference on Computer Vision",
+    month: "Oct", day: "24", year: "2027",
+    location: "TBD",
+    topic: "Computer Vision",
+    rank: "A*",
+    paperDeadline: "Mar 07, 2027",
+    notificationDate: "Jun 25, 2027",
+    cameraReady: "Jul 15, 2027",
+    url: "https://iccv.thecvf.com/"
+  },
+
+  // ── Medical Imaging & Bioinformatics ───────────────────────
+
+  {
+    title: "BIBM 2026 – IEEE International Conference on Bioinformatics and Biomedicine",
+    month: "Dec", day: "01", year: "2026",
+    location: "TBD",
+    topic: "Medical AI",
+    rank: "B",
+    paperDeadline: "Jul 05, 2026",
+    notificationDate: "Sep 25, 2026",
+    cameraReady: "Oct 25, 2026",
+    url: "https://www3.cs.stonybrook.edu/~bibm2026/"
+  },
+  {
+    title: "MICCAI 2027 – Medical Image Computing and Computer Assisted Intervention",
+    month: "Sep", day: "27", year: "2027",
+    location: "Auckland, New Zealand",
+    topic: "Medical Imaging",
+    rank: "A",
+    paperDeadline: "Feb 26, 2027",
+    notificationDate: "Jun 15, 2027",
+    cameraReady: "Jul 05, 2027",
+    url: "https://miccai.org/"
+  },
+
+  // ── NLP & Graph-based ML ───────────────────────────────────
+
+  {
+    title: "EMNLP 2026 – Empirical Methods in Natural Language Processing",
+    month: "Oct", day: "24", year: "2026",
+    location: "Budapest, Hungary",
+    topic: "NLP",
+    rank: "A*",
+    paperDeadline: "May 25, 2026", // ARR Submission Deadline
+    notificationDate: "Jul 30, 2026",
+    cameraReady: "Aug 20, 2026",
+    url: "https://2026.emnlp.org/"
+  },
+  {
+    title: "LoG 2026 – Learning on Graphs Conference",
+    month: "Dec", day: "10", year: "2026",
+    location: "Virtual/TBD",
+    topic: "Graph ML",
+    rank: "A", // Peer-regarded as A-equivalent
+    paperDeadline: "Sep 15, 2026",
+    notificationDate: "Nov 05, 2026",
+    cameraReady: "Nov 25, 2026",
+    url: "https://www.logconference.org/"
+  },
+  {
+    title: "ACL 2027 – Association for Computational Linguistics",
+    month: "Jul", day: "10", year: "2027",
+    location: "TBD",
+    topic: "NLP",
+    rank: "A*",
+    paperDeadline: "Feb 16, 2027",
+    notificationDate: "May 10, 2027",
+    cameraReady: "May 30, 2027",
+    url: "https://www.aclweb.org/"
+  },
+
+  // ── Information Retrieval & Data Mining ─────────────────────
+
+  {
+    title: "CIKM 2026 – Conference on Information and Knowledge Management",
+    month: "Oct", day: "26", year: "2026",
+    location: "Rome, Italy",
+    topic: "Information Retrieval",
+    rank: "A",
+    paperDeadline: "May 25, 2026",
+    notificationDate: "Jul 31, 2026",
+    cameraReady: "Aug 20, 2026",
+    url: "https://cikm2026.diag.uniroma1.it/"
+  },
+  {
+    title: "ICDM 2026 – IEEE International Conference on Data Mining",
+    month: "Nov", day: "12", year: "2026",
+    location: "Shenyang, China",
+    topic: "Data Mining",
+    rank: "A*",
+    paperDeadline: "Jun 06, 2026",
+    notificationDate: "Aug 16, 2026",
+    cameraReady: "Sep 15, 2026",
+    url: "http://icdm2026.neu.edu.cn/"
+  },
+  {
+    title: "TheWebConf 2027 (WWW) – The Web Conference",
+    month: "Apr", day: "15", year: "2027",
+    location: "TBD",
+    topic: "Web & Networks",
+    rank: "A*",
+    paperDeadline: "Oct 15, 2026",
+    notificationDate: "Jan 15, 2027",
+    cameraReady: "Jan 30, 2027",
+    url: "https://www2027.thewebconf.org/"
+  },
+  {
+    title: "KDD 2027 – Knowledge Discovery and Data Mining",
+    month: "Aug", day: "03", year: "2027",
+    location: "Toronto, Canada",
+    topic: "Data Mining/Graph",
+    rank: "A*",
+    paperDeadline: "Feb 08, 2027",
+    notificationDate: "May 15, 2027",
+    cameraReady: "Jun 10, 2027",
+    url: "https://kdd.org/kdd2027/"
+  }
 ];
