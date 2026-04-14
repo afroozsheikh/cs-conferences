@@ -609,4 +609,195 @@ const conferences = [
     cameraReady: "Jun 10, 2027",
     url: "https://kdd.org/kdd2027/"
   }
+  {
+    title: "ESORICS 2026 – European Symposium on Research in Computer Security",
+    month: "Sep", day: "14", year: "2026",
+    location: "Rome, Italy",
+    topic: "Security",
+    rank: "A",
+    paperDeadline: "Apr 21, 2026",
+    notificationDate: "Jun 15, 2026",
+    cameraReady: "Jul 10, 2026",
+    url: "https://esorics2026.org/"
+  },
+  {
+    title: "ACM CCS 2026 – ACM Conference on Computer and Communications Security",
+    month: "Nov", day: "15", year: "2026",
+    location: "The Hague, Netherlands",
+    topic: "Security",
+    rank: "A*",
+    paperDeadline: "Apr 29, 2026", // Cycle 2
+    notificationDate: "Jul 17, 2026",
+    cameraReady: "Sep 17, 2026",
+    url: "https://www.sigsac.org/ccs/CCS2026/"
+  },
+  {
+    title: "ACSAC 2026 – Annual Computer Security Applications Conference",
+    month: "Dec", day: "07", year: "2026",
+    location: "Los Angeles, USA",
+    topic: "Security",
+    rank: "B",
+    paperDeadline: "May 26, 2026",
+    notificationDate: "Aug 15, 2026",
+    cameraReady: "Sep 20, 2026",
+    url: "https://www.acsac.org/"
+  },
+  {
+    title: "USENIX Security 2027 – 36th USENIX Security Symposium",
+    month: "Aug", day: "11", year: "2027",
+    location: "Denver, USA",
+    topic: "Security",
+    rank: "A*",
+    paperDeadline: "Aug 25, 2026", // Winter Cycle
+    notificationDate: "Nov 15, 2026",
+    cameraReady: "Jan 10, 2027",
+    url: "https://www.usenix.org/conference/usenixsecurity27"
+  },
+
+  // ── Data Mining & Information Retrieval ─────────────────────
+
+  {
+    title: "CIKM 2026 – ACM Conference on Information and Knowledge Management",
+    month: "Oct", day: "26", year: "2026",
+    location: "Rome, Italy",
+    topic: "Data Mining",
+    rank: "A",
+    paperDeadline: "May 25, 2026",
+    notificationDate: "Jul 31, 2026",
+    cameraReady: "Aug 20, 2026",
+    url: "https://cikm2026.diag.uniroma1.it/"
+  },
+  {
+    title: "ICDM 2026 – IEEE International Conference on Data Mining",
+    month: "Nov", day: "12", year: "2026",
+    location: "Shenyang, China",
+    topic: "Data Mining",
+    rank: "A*",
+    paperDeadline: "Jun 06, 2026",
+    notificationDate: "Aug 16, 2026",
+    cameraReady: "Sep 15, 2026",
+    url: "http://icdm2026.neu.edu.cn/"
+  },
+  {
+    title: "WSDM 2027 – ACM International Conference on Web Search and Data Mining",
+    month: "Feb", day: "22", year: "2027",
+    location: "TBD",
+    topic: "Web Mining",
+    rank: "A",
+    paperDeadline: "Aug 15, 2026",
+    notificationDate: "Oct 25, 2026",
+    cameraReady: "Nov 20, 2026",
+    url: "https://www.wsdm-conference.org/2027/"
+  },
+
+  // ── Robotics ───────────────────────────────────────────────
+
+  {
+    title: "CoRL 2026 – Conference on Robot Learning",
+    month: "Nov", day: "05", year: "2026",
+    location: "TBD",
+    topic: "Robotics",
+    rank: "B", // Often treated as A-tier in ML communities
+    paperDeadline: "May 28, 2026",
+    notificationDate: "Aug 20, 2026",
+    cameraReady: "Oct 12, 2026",
+    url: "https://www.corl.org/"
+  },
+  {
+    title: "ICRA 2027 – IEEE International Conference on Robotics and Automation",
+    month: "May", day: "17", year: "2027",
+    location: "TBD",
+    topic: "Robotics",
+    rank: "A*",
+    paperDeadline: "Sep 15, 2026",
+    notificationDate: "Jan 15, 2027",
+    cameraReady: "Feb 25, 2027",
+    url: "https://www.icra2027.org/"
+  },
+
+  // ── Digital Health & Medical AI ─────────────────────────────
+
+  {
+    title: "HealthINF 2027 – International Conference on Health Informatics",
+    month: "Feb", day: "22", year: "2027",
+    location: "Porto, Portugal",
+    topic: "Digital Health",
+    rank: "B",
+    paperDeadline: "Oct 05, 2026",
+    notificationDate: "Nov 30, 2026",
+    cameraReady: "Dec 15, 2026",
+    url: "https://healthinf.scitevents.org/"
+  },
+  {
+    title: "AMIA 2027 – AMIA Annual Symposium",
+    month: "Nov", day: "01", year: "2027",
+    location: "TBD",
+    topic: "Informatics/Health",
+    rank: "A",
+    paperDeadline: "Mar 10, 2027",
+    notificationDate: "Jun 15, 2027",
+    cameraReady: "Jul 15, 2027",
+    url: "https://amia.org/education-events/amia-2027-annual-symposium"
+  },
+  {
+    title: "DH 2027 – ACM International Conference on Digital Health",
+    month: "Jun", day: "15", year: "2027",
+    location: "TBD",
+    topic: "Digital Health",
+    rank: "B",
+    paperDeadline: "Jan 15, 2027",
+    notificationDate: "Mar 20, 2027",
+    cameraReady: "Apr 10, 2027",
+    url: "https://acmdh.org/"
+  },
+
+  // ── Web Services & Cloud ───────────────────────────────────
+
+  {
+    title: "IEEE ICWS 2027 – IEEE International Conference on Web Services",
+    month: "Jul", day: "12", year: "2027",
+    location: "TBD",
+    topic: "Web Services",
+    rank: "B",
+    paperDeadline: "Mar 08, 2027",
+    notificationDate: "May 10, 2027",
+    cameraReady: "May 31, 2027",
+    url: "https://services.conferences.computer.org/2027/icws/"
+  },
+  {
+    title: "IEEE SCC 2027 – IEEE International Conference on Services Computing",
+    month: "Jul", day: "12", year: "2027",
+    location: "TBD",
+    topic: "Web Services",
+    rank: "B",
+    paperDeadline: "Mar 08, 2027",
+    notificationDate: "May 10, 2027",
+    cameraReady: "May 31, 2027",
+    url: "https://services.conferences.computer.org/2027/scc/"
+  },
+
+  // ── Image Processing (Continued) ───────────────────────────
+
+  {
+    title: "ICASSP 2027 – IEEE Intl. Conf. on Acoustics, Speech and Signal Processing",
+    month: "Mar", day: "21", year: "2027",
+    location: "New Orleans, USA",
+    topic: "Image Processing",
+    rank: "B",
+    paperDeadline: "Oct 20, 2026",
+    notificationDate: "Jan 15, 2027",
+    cameraReady: "Feb 05, 2027",
+    url: "https://2027.ieeeicassp.org/"
+  },
+  {
+    title: "VCIP 2026 – IEEE Visual Communications and Image Processing",
+    month: "Dec", day: "13", year: "2026",
+    location: "TBD",
+    topic: "Image Processing",
+    rank: "B",
+    paperDeadline: "Jun 15, 2026",
+    notificationDate: "Sep 01, 2026",
+    cameraReady: "Sep 25, 2026",
+    url: "https://vcip2026.org/"
+  }
 ];
