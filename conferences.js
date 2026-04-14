@@ -608,7 +608,7 @@ const conferences = [
     notificationDate: "May 15, 2027",
     cameraReady: "Jun 10, 2027",
     url: "https://kdd.org/kdd2027/"
-  }
+  },
   {
     title: "ESORICS 2026 – European Symposium on Research in Computer Security",
     month: "Sep", day: "14", year: "2026",
