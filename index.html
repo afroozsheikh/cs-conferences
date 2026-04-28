@@ -172,6 +172,28 @@
     background: var(--blue); color: var(--white); border-color: var(--blue);
   }
 
+  /* ─── RANK FILTER ─── */
+  .rank-filter {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    margin-bottom: 12px;
+  }
+  .rank-filter-label {
+    font-size: .82rem; font-weight: 600; color: var(--grey-600);
+    margin-right: 4px;
+  }
+  .rank-filter button {
+    border: 1px solid var(--grey-200);
+    background: var(--white); color: var(--grey-600);
+    font-family: var(--font-body); font-size: .8rem; font-weight: 700;
+    padding: 5px 13px; border-radius: 20px;
+    cursor: pointer; transition: all .2s;
+  }
+  .rank-filter button:hover { border-color: var(--blue); color: var(--blue); }
+  .rank-filter button.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .rank-filter button.rank-astar.active { background: #7a0e1e; border-color: #7a0e1e; }
+  .rank-filter button.rank-a.active    { background: #92400e; border-color: #92400e; }
+  .rank-filter button.rank-b.active    { background: #0e7490; border-color: #0e7490; }
+
   /* ─── HIDE CLOSED TOGGLE ─── */
   .toggle-wrap {
     display: flex; align-items: center; gap: 10px;
@@ -457,6 +479,15 @@
       <button onclick="filterMonth('Dec', this)">Dec 2026</button>
     </div>
 
+    <!-- Rank filter -->
+    <div class="rank-filter">
+      <span class="rank-filter-label">Rank:</span>
+      <button class="active" onclick="filterRank('all', this)">All</button>
+      <button class="rank-astar" onclick="filterRank('A*', this)">CORE A*</button>
+      <button class="rank-a"    onclick="filterRank('A', this)">CORE A</button>
+      <button class="rank-b"    onclick="filterRank('B', this)">CORE B</button>
+    </div>
+
     <!-- Hide closed toggle -->
     <div class="toggle-wrap">
       <label for="hideClosedToggle">Hide closed conferences</label>
@@ -561,6 +592,7 @@ function buildTopics() {
 
 // ── State ──
 let currentMonth = 'all';
+let currentRank  = 'all';
 let searchQuery  = '';
 let hideClosed   = true;
 
@@ -669,8 +701,9 @@ function toggleHideClosed(btn) {
 // ── Filtering ──
 function applyFilters() {
   let list = conferences;
-  if (hideClosed) list = list.filter(c => getStatus(c.paperDeadline) !== 'closed');
+  if (hideClosed)          list = list.filter(c => getStatus(c.paperDeadline) !== 'closed');
   if (currentMonth !== 'all') list = list.filter(c => c.month === currentMonth);
+  if (currentRank  !== 'all') list = list.filter(c => c.rank === currentRank);
   if (searchQuery)             list = list.filter(c =>
     c.title.toLowerCase().includes(searchQuery) ||
     c.location.toLowerCase().includes(searchQuery) ||
@@ -683,6 +716,13 @@ function applyFilters() {
 function filterMonth(m, btn) {
   currentMonth = m;
   document.querySelectorAll('.month-tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function filterRank(rank, btn) {
+  currentRank = rank;
+  document.querySelectorAll('.rank-filter button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   applyFilters();
 }
