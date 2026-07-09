@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
+import { checkSlugCollisions } from './lib/build-checks'
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+checkSlugCollisions()
 
-export default nextConfig;
+const nextConfig: NextConfig = {}
+
+export default nextConfig
