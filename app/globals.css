@@ -5,7 +5,7 @@
   /* Palette — maps CSS vars to Tailwind utilities */
   --color-bg:            var(--bg);
   --color-surface:       var(--surface);
-  --color-border:        var(--border);
+  --color-border:        var(--border-color);
   --color-accent:        var(--accent);
   --color-accent-muted:  var(--accent-muted);
   --color-text-primary:  var(--text-primary);
