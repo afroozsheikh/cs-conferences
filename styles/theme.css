@@ -1,14 +1,14 @@
 /* styles/theme.css */
 :root {
-  --bg:            #0d0608;
-  --surface:       #140a0e;
-  --border-color:  #2a1218;
-  --accent:        #e63e5c;
-  --accent-muted:  #8a1a2b;
-  --text-primary:  #f5e6ea;
-  --text-secondary: rgba(245, 230, 234, 0.65);
-  --text-label:    rgba(245, 230, 234, 0.45);
-  --dot-color:     #3d1220;
+  --bg:             #f5f0e8;
+  --surface:        #ede6db;
+  --border-color:   #d4c4b4;
+  --accent:         #730d28;
+  --accent-muted:   #f0dde3;
+  --text-primary:   #1c180f;
+  --text-secondary: rgba(28, 24, 15, 0.65);
+  --text-label:     rgba(28, 24, 15, 0.45);
+  --dot-color:      #dcc8cc;
 }
 
 /* Dot-field background — used by Hero and Subscribe sections */
