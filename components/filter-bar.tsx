@@ -72,6 +72,7 @@ export default function FilterBar({ filters, onChange, topics }: Props) {
             type="text"
             value={filters.search}
             onChange={(e) => set({ search: e.target.value })}
+            aria-label="Search conferences"
             placeholder="Search…"
             className="w-48 rounded-lg border border-border bg-surface px-3 py-1.5 font-mono text-xs text-text-primary outline-none placeholder:text-text-label focus:border-accent"
           />
