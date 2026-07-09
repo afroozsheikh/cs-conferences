@@ -1,0 +1,31 @@
+/* styles/theme.css */
+:root {
+  --bg:            #0d0608;
+  --surface:       #140a0e;
+  --border:        #2a1218;
+  --accent:        #e63e5c;
+  --accent-muted:  #8a1a2b;
+  --text-primary:  #f5e6ea;
+  --text-secondary: rgba(245, 230, 234, 0.65);
+  --text-label:    rgba(245, 230, 234, 0.45);
+  --dot-color:     #3d1220;
+}
+
+/* Dot-field background — used by Hero and Subscribe sections */
+.dot-field {
+  position: relative;
+}
+.dot-field::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+.dot-field > * {
+  position: relative;
+  z-index: 1;
+}
