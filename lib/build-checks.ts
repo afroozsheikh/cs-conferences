@@ -1,4 +1,4 @@
-import { conferences } from '@/data/conferences'
+import { conferences } from '../data/conferences'
 
 export function checkSlugCollisions(): void {
   const seen = new Map<string, string>()
