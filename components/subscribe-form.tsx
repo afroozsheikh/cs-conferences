@@ -8,6 +8,7 @@ export default function SubscribeForm() {
   const [categories, setCategories] = useState<string[]>([])
   const [errors, setErrors] = useState<{ email?: string; categories?: string }>({})
   const [submitted, setSubmitted] = useState(false)
+  const [apiError, setApiError] = useState<string | null>(null)
 
   function toggle(topic: string) {
     setCategories((prev) =>
@@ -26,12 +27,24 @@ export default function SubscribeForm() {
     return e
   }
 
-  function handleSubmit(evt: React.FormEvent) {
+  async function handleSubmit(evt: React.FormEvent) {
     evt.preventDefault()
     const e = validate()
     if (Object.keys(e).length > 0) { setErrors(e); return }
     setErrors({})
-    setSubmitted(true)
+    setApiError(null)
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, topics: categories }),
+      })
+      if (!res.ok) throw new Error('API error')
+      setSubmitted(true)
+    } catch {
+      setApiError('Something went wrong — please try again.')
+    }
   }
 
   if (submitted) {
@@ -100,6 +113,9 @@ export default function SubscribeForm() {
         )}
       </div>
 
+      {apiError && (
+        <p className="font-mono text-xs text-accent">{apiError}</p>
+      )}
       <button
         type="submit"
         className="w-full rounded-full border border-accent bg-accent py-3 font-mono text-xs uppercase tracking-widest text-bg transition-opacity hover:opacity-80"
