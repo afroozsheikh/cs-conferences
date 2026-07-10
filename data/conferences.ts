@@ -12,6 +12,19 @@ export type Topic =
   | 'Robotics'
   | 'Cloud Computing'
 
+export const TOPICS: Topic[] = [
+  'Machine Learning',
+  'Computer Vision',
+  'NLP',
+  'Health Informatics',
+  'Data Mining & IR',
+  'Web & Networks',
+  'Security',
+  'Software Engineering',
+  'Robotics',
+  'Cloud Computing',
+]
+
 export type Conference = {
   slug: string           // e.g. "icml-2026" — used for /c/[slug]
   title: string

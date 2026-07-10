@@ -1,19 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-
-const TOPICS = [
-  'Machine Learning',
-  'Computer Vision',
-  'NLP',
-  'Health Informatics',
-  'Data Mining & IR',
-  'Security',
-  'Software Engineering',
-  'Web & Networks',
-  'Robotics',
-  'Cloud Computing',
-]
+import { TOPICS } from '../data/conferences'
 
 export default function SubscribeForm() {
   const [email, setEmail] = useState('')
