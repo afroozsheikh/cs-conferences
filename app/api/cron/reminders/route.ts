@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server'
 import { Resend } from 'resend'
 import { conferences } from '@/data/conferences'
-import { supabase } from '@/lib/supabase'
+import { getSupabaseClient } from '@/lib/supabase'
 import { signUnsubscribeToken } from '@/lib/unsubscribe-token'
 import { renderReminderEmail } from '@/lib/email'
 
@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
 
   const relevantTopics = [...new Set(upcoming.map((c) => c.topic))]
 
-  const { data: subscribers, error: dbError } = await supabase
+  const { data: subscribers, error: dbError } = await getSupabaseClient()
     .from('subscribers')
     .select('email, topics')
     .overlaps('topics', relevantTopics)

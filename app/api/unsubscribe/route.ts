@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server'
 import { verifyUnsubscribeToken } from '../../../lib/unsubscribe-token'
-import { supabase } from '../../../lib/supabase'
+import { getSupabaseClient } from '../../../lib/supabase'
 
 export async function GET(request: NextRequest) {
   const token = request.nextUrl.searchParams.get('token')
@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
     return new Response('Invalid or expired unsubscribe link.', { status: 400 })
   }
 
-  await supabase.from('subscribers').delete().eq('email', email)
+  await getSupabaseClient().from('subscribers').delete().eq('email', email)
 
   return new Response(
     `<!DOCTYPE html><html><body style="font-family:monospace;padding:40px;background:#f5f0e8;color:#1c180f;">

@@ -1,5 +1,5 @@
 import { validateSubscription } from '../../../lib/validate-subscription'
-import { supabase } from '../../../lib/supabase'
+import { getSupabaseClient } from '../../../lib/supabase'
 
 export async function POST(request: Request) {
   let body: unknown
@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     return Response.json({ error: result.error }, { status: 400 })
   }
 
-  const { error } = await supabase
+  const { error } = await getSupabaseClient()
     .from('subscribers')
     .upsert(
       { email: email as string, topics: topics as string[] },
